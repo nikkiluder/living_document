@@ -140,6 +140,32 @@ These combinations allow flexibility in tone:
  
 For more formatting options, see the [Quarto Markdown Basics documentation](https://quarto.org/docs/authoring/markdown-basics.html).
 
+### Inserting External Links
+
+External links can be added verbatim by copying said link into the document and bracketing it with < > like this: 
+
+```markdown
+<https://en.wikipedia.org/wiki/Bumblebee>
+```
+
+If one does not want the link to appear in full, one can add another string in square brackets and the link, this time in regular brackets, to the right as exemplified below. The output will then display the link in the square brackets and clickin on it will redirect the reader to the landing page of the deposited link - here a page on [Bumblebees](https://en.wikipedia.org/wiki/Bumblebee).
+
+```markdown
+[Bumblebees](https://en.wikipedia.org/wiki/Bumblebee)
+```
+
+### Linking to Document-Internal Sections
+
+For this, the header one wishes to link to must be augmented with a tag of the following syntax (including the squiggly brackets). The NAME part can be adapted by the author. The tag is added to the header's right boundary.
+
+```markdown
+{#sec-NAME}
+```
+To later reference said header, the same tag but with an at sign instead of the octothorpe must be added. This can then be integrated into prose text. The NAME part will be displayed.
+
+```markdown
+As discussed in @sec-NAME,...
+```
 
 ## Code Cells and Quarto Options
 <!-- TODOs: basic chunk, inline code, echo, chunk options -->
