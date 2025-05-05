@@ -70,8 +70,6 @@ For all the options you can visit [Quarto - HTML basics] https://quarto.org/docs
 ## Basic Formatting & Markdown
 <!-- TODOs: headings, lists, emphasis, code blocks, links, footnotes -->
 
-Show how to use basic text formatting (bold, italic, strikethrough) with examples #3 
-
 ### Emphasis and Text Styles
 
 In Markdown and Quarto, text formatting is done by surrounding words or phrases with special symbols. This method makes formatting quick, consistent, and readable even in plain text. It also helps writers focus on content without relying on visual formatting tools.
@@ -294,6 +292,88 @@ kable(
 <!-- TODOs: .bib file usage, citation styles, Zotero integration -->
 
 ---
+
+## Citations and Bibliography
+
+Citations in Quarto are managed using external bibliography files, typically with a `.bib` extension (in BibTeX format). This method keeps references organized and separates citation data from the main text.
+
+### Step 1: Create a `.bib` file
+
+A `.bib` file contains citation entries such as `@book`, `@article`, or `@misc`. Each entry stores metadata like author, title, and year. This format allows Quarto to format and render citations consistently.
+
+Example entry:
+
+```bibtex
+@book{manning1999,
+  author    = {Christopher D. Manning and Hinrich Schütze},
+  title     = {Foundations of Statistical Natural Language Processing},
+  year      = {1999},
+  publisher = {MIT Press}
+}
+```
+
+It is recommended to name the file `references.bib` and place it in the root of the Quarto project folder.
+
+Tip: Tools like Zotero (with the Better BibTeX plugin) can help manage and export `.bib` files easily.
+
+### Step 2: Link the `.bib` file in the YAML header
+
+Add the following line to the YAML metadata block at the top of the `.qmd` file:
+
+```yaml
+bibliography: references.bib
+```
+
+We can also include multiple `.bib` files if needed:
+
+```yaml
+bibliography: [references.bib, extra.bib]
+```
+
+This tells Quarto where to find the citation data.
+
+### Step 3: Add inline citations
+
+To cite a source in the text, use `@key`, where `key` is the BibTeX ID from your `.bib` file.
+
+There are two common ways to format inline citations:
+
+- `[@manning1999]` → renders as: (Manning and Schütze 1999)  
+  *Used when the author name should appear in the citation.*
+
+- `[-@manning1999]` → renders as: (1999)  
+  *Used when the author name is already mentioned in the sentence.*
+
+For example:
+
+See [@manning1999]. 
+Published in [-@manning1999].
+
+### Step 4: Generate the bibliography section
+
+At the end of document, include a section where the bibliography will be rendered:
+
+```markdown
+## References
+```
+
+Quarto will automatically generate this list using the sources you've cited. If no references section is added manually, it will appear at the end of the document by default.
+
+### Step 5: Change the citation style (Optional)
+
+Citation styles can be changed using the `csl:` option in the YAML block. For example:
+
+```yaml
+csl: apa.csl
+```
+
+CSL (Citation Style Language) files define formatting rules (e.g., APA, MLA, Chicago). Thousands of styles can be downloaded from the [Zotero Style Repository](https://www.zotero.org/styles).
+
+### Further Reading and Resources
+
+- [Quarto Documentation – Citations](https://quarto.org/docs/authoring/footnotes-and-citations.html)
+- [Zotero Style Repository](https://www.zotero.org/styles)
+``` 
 
 # Git and Collaborative Workflows
 
