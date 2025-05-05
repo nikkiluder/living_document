@@ -31,6 +31,44 @@ It will evolve as we work on it together, and serve as a reference for your grou
 The *metadata header* is the beginning of a Quarto document. It displays information like author or date and tells Quarto how the document should be configurated. As an example, you can look at the top of this document in the in its qmd file version, *not in the rendered version*.
 There are a lot of possibilities to customize a Quarto document in the *metadata header*. In this document, we will be looking at the most commonly used configurations. If you want to see all the options that are available, you can visit the [official Quarto website] (https://quarto.org/docs/output-formats/html-basics.html).
 
+The formatting applies only to the current document.
+
+Use triple dashes to delineate the block:
+
+```
+---
+some metadata
+---
+```
+Most commonly, the title block contains the **title**, **subtitle**, **authors**, **date**, **doi** and the **abstract** of the article.
+
+Other important options:
+
+```
+format: html / pdf / docx
+```
+This option defines the format of the final product.
+
+```
+date: YYYY-MM-DD
+```
+Sets the publication date (find supported date formats [here](https://quarto.org/docs/reference/dates.html)
+)
+
+```
+execute: 
+  echo: true / false
+  eval: true / false
+  warning: true / false ...
+```
+Controls how code cells are executed:
+
+- **echo**: shows the code in the output if **true**
+- **eval**: executes the code if **true**
+- **warning**: includes warnings in the output if **true**
+- **message**: includes messages from code if **true**
+- **error**: displays error messages in the output if **true**
+
 ### Sections
 To better structure and improve the appearance of the document, a Quarto report can be divided into sections with headings.
 If you want to number the headings or add a table of contents *toc*, which serves as an interactive section menu, you can do so in the *metadata header*. For example, in this document, we use the following configurations:
