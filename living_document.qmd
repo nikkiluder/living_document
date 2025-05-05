@@ -27,6 +27,46 @@ It will evolve as we work on it together, and serve as a reference for your grou
 ## Anatomy of a Quarto Report
 <!-- TODOs: metadata header, sections, layout options, customization -->
 
+### Metadata Header
+The *metadata header* is the beginning of a Quarto document. It displays information like author or date and tells Quarto how the document should be configurated. As an example, you can look at the top of this document in the in its qmd file version, *not in the rendered version*.
+There are a lot of possibilities to customize a Quarto document in the *metadata header*. In this document, we will be looking at the most commonly used configurations. If you want to see all the options that are available, you can visit the [official Quarto website] (https://quarto.org/docs/output-formats/html-basics.html).
+
+### Sections
+To better structure and improve the appearance of the document, a Quarto report can be divided into sections with headings.
+If you want to number the headings or add a table of contents *toc*, which serves as an interactive section menu, you can do so in the *metadata header*. For example, in this document, we use the following configurations:
+```markdown  
+  toc: true
+  toc-depth: 3
+  number-sections: true
+```
+You can also add the option `number-depth: 4` to set the deepest level of heading that should be numbered and you can use `### Example Heading {.unnumbered}` to exclude a heading from numbering.
+
+### Layout Options
+Depending on what format you use, there are different layout options available.
+For a **HTML document**, like this one, there are the following options to configurate the document:
+
+#### Page Layout
+1. `page-layout: article` - default layout with single centered content column
+2. `page-layout: full` - expanding content to full browser width
+3. `page-layout: sidebar` - adding sidebar for navigation
+
+#### Themes
+There are 25 themes from [*Bootswatch*] (https://bootswatch.com/) available in Quarto. These themes can further be customized in the metadata header.
+If you want to check out all the theme options and configurations, you can go to [Quarto - HTML themes] (https://quarto.org/docs/output-formats/html-themes.html).
+
+#### Table of Contents
+If you set `toc: true` in the metadata header, Quarto creates a table of contents. This table can further be configurated with options such as:
+`toc-depth: 4` - specify number of section/heading levels to include in the toc, *default is set to 3*
+`toc-expand: 3` - specify how much of toc to show initially, *default is set to 1*
+`toc-title: Example` - customize title of toc
+`### Example Heading {.unnumbered .unlisted}` - exclude heading from toc
+`toc-location: left` - set location of toc
+For more information, you can visit [Quarto - HTML basics] https://quarto.org/docs/output-formats/html-basics.html and scroll to the section **Table of Contents**.
+
+#### Other Layout Options
+There are many other layout options available to configurate spacing, typography, character width, etc.
+For all the options you can visit [Quarto - HTML basics] https://quarto.org/docs/output-formats/html-basics.html.
+
 ## Basic Formatting & Markdown
 <!-- TODOs: headings, lists, emphasis, code blocks, links, footnotes -->
 
@@ -106,6 +146,8 @@ For more formatting options, see the [Quarto Markdown Basics documentation](http
 
 ## Images and Plots
 <!-- TODOs: inserting local images, captions, figure sizing, code-generated plots -->
+### How to reference images in text
+
 
 ## Tables
 <!-- TODOs: markdown tables, knitr::kable(), comparison -->
