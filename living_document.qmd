@@ -544,6 +544,21 @@ penguin_adelie_stats <- penguins |>                                    # <2>
 
 # Extra Tips and Tricks
 <!-- TODOs: VSCode setup for Quarto/RMarkdown etc. -->
+## VS Code Setup for Quarto
+
+- Install [VS Code](https://code.visualstudio.com), [R](https://cran.r-project.org) and [Quarto](https://quarto.org/docs/get-started/).
+- Open VS Code, go to Extensions and install **Quarto**.
+- Install the required packages: knitr and rmarkdown. To do this, run the following commands:
+  ```
+  install.packages('knitr')
+  install.packages('rmarkdown')
+  ```
+  You can run these commands on RStudio ([installation instructions](https://posit.co/download/rstudio-desktop/)). Alternatively, you can set up an R terminal on VS Code. To do this, you will need another **extension**: **R**. Once you've installed R on VS Code, you can run an R terminal and install packages there.
+
+- To preview your document, press the preview button (top right corner).
+
+- To view recent changes, refresh the preview (refresh button in Quarto Preview tab).
+
 
 ---
 
