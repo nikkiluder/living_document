@@ -79,6 +79,32 @@ If you want to number the headings or add a table of contents *toc*, which serve
 ```
 You can also add the option `number-depth: 4` to set the deepest level of heading that should be numbered and you can use `### Example Heading {.unnumbered}` to exclude a heading from numbering.
 
+## Document Sections and Header Levels
+
+In Quarto (and Markdown), section headers are defined using the hash symbol `#`. The number of hash symbols indicates the depth of the section:
+
+- `#` creates a top-level (H1) section
+- `##` creates a second-level (H2) subsection
+- `###` creates a third-level (H3) sub-subsection  
+  … and so on, up to six levels (`######`)
+
+This system allows the document to be structured hierarchically, which improves both **readability** and **navigability**. Header levels are also used to build features like the **table of contents** (`toc: true`) and for **numbering sections** (`number-sections: true` in YAML).
+
+Always include a space after the hash symbols. For example:
+
+```markdown
+# Introduction
+## Methodology
+### Data Collection
+#### Survey Design
+##### Question Format
+###### Notes
+```
+
+To ensure consistency, avoid skipping levels (e.g., going directly from `#` to `###`) unless intentionally needed for visual clarity or document structure.
+
+For more, see [Quarto documentation on headers](https://quarto.org/docs/authoring/markdown-basics.html#headers).
+
 ### Layout Options
 Depending on what format you use, there are different layout options available.
 For a **HTML document**, like this one, there are the following options to configurate the document:
