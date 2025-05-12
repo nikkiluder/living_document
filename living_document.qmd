@@ -301,7 +301,54 @@ As discussed in @sec-NAME,...
 
 ## Images and Plots
 <!-- TODOs: inserting local images, captions, figure sizing, code-generated plots -->
+
+Use the following syntax to insert your local image:
+
+```![Stepan](images/cat.PNG)```
+
+![Stepan](images/cat.PNG)
+
+Where the text enclosed in square brackets is the caption.
+
+By default, figures are displayed in their original size. You can change the size by passing custom width or height in curly brackets:
+
+```![Stepan](images/cat.PNG){width=20%}```
+
+![Stepan](images/cat.PNG){width=20%}
+
+Width and height can be specified using a **percentage**, **inches** or **millimetres**.
+
+You can control figure alignment with the **fig-align** attribute:
+
+```![Stepan](images/cat.PNG){width=20% fig-align="right"}```
+
+![Stepan](images/cat.PNG){width=20% fig-align="right"}
+
+The other options are **default**, **left** and **right**.
+
+You can also add alternative text which will be displayed if your picture is not loaded:
+
+```![Stepan](){fig-alt="A frustrated cat."}```
+
+![Stepan](images/cats.PNG){fig-alt="A frustrated cat."}
+
+You can render the caption as alternative text by adding a backslash at the end:
+
+```![Stepan](images/cat.PNG)\```
+
+![Stepan](images/cats.PNG)\
+
 ### How to reference images in text
+
+You can reference your figures by adding an ID with the **fig-** prefix and then referencing them with the **@** prefix in text:
+
+```![Stepan](images/cat.PNG){width=20% #fig-cat}```
+
+![Stepan](images/cat.PNG){width=20% #fig-cat}
+
+Please observe the frustrated cat in @fig-cat.
+
+See the [documentation](https://quarto.org/docs/authoring/figures.html) for further details.
 
 
 ## Tables
