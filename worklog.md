@@ -7,3 +7,4 @@
 - 05.05.2025 Bibliography setup (#14, @ShengnanZhang1)
 - 05.05.2025 Setting up Quarto with VSCode (@yfrund)
 - 09.05.2025 Sections (@ShengnanZhang1)
+- 12.05.2025 Markdown lists (@VioletG226)

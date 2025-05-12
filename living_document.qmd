@@ -133,6 +133,73 @@ For all the options you can visit [Quarto - HTML basics] https://quarto.org/docs
 
 ## Basic Formatting & Markdown
 <!-- TODOs: headings, lists, emphasis, code blocks, links, footnotes -->
+### Lists
+#### Unordered Lists
+
+1. Use `-`, `+`, or `*` followed by a space (choosing one style is enough)
+2. To create a **nested list**, indent (with 2 or 4 spaces) the sublist items under the parent item
+
+**Example**
+
+```markdown
+* unordered list
+    + sub-item 1
+    + sub-item 2
+        - sub-sub-item 1
+```
+**Rendered as**
+
+* unordered list
+    + sub-item 1
+    + sub-item 2
+        - sub-sub-item 1
+
+#### Ordered Lists
+1. Ordered lists work just like unordered lists — just replace the bullets (`-`, `+`, or `*`) followed by a period `.`
+
+2. In a nested ordered list, formats like `A.` or `i)`can be recognized if they are properly indented
+    - Note: it's also better to use **two spaces after the marker** to ensure the item is parsed as part of the list
+
+**Example**
+```markdown
+1. ordered list
+2. item 2
+    i) sub-item 1
+         A.  sub-sub-item 1
+```
+**Rendered as**
+
+1. ordered list
+2. item 2
+    i) sub-item 1
+         A.  sub-sub-item 1
+
+#### Mix Ordered and Unordered lists
+It's also possible to mix ordered and unordered lists.
+
+**Example**
+
+```markdown
+1. Main item one  
+   - Sub item A  
+   - Sub item B  
+2. Main item two  
+   * Sub item C  
+     1. Sub-sub item (ordered)  
+     2. Another sub-sub item  
+```
+
+**Rendered as**
+
+1. Main item one  
+   - Sub item A  
+   - Sub item B  
+2. Main item two  
+   * Sub item C  
+     1. Sub-sub item (ordered)  
+     2. Another sub-sub item  
+
+*For more formatting options, see the [Quarto Markdown Basics documentation on Lists](https://quarto.org/docs/authoring/markdown-basics.html#lists).*
 
 ### Emphasis and Text Styles
 
