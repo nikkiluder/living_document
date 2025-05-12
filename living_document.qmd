@@ -551,7 +551,7 @@ CSL (Citation Style Language) files define formatting rules (e.g., APA, MLA, Chi
 
 - [Quarto Documentation – Citations](https://quarto.org/docs/authoring/footnotes-and-citations.html)
 - [Zotero Style Repository](https://www.zotero.org/styles)
- 
+
 
 # Git and Collaborative Workflows
 
@@ -560,6 +560,7 @@ CSL (Citation Style Language) files define formatting rules (e.g., APA, MLA, Chi
 
 ## GitHub Desktop
 <!-- TODOs: clone, commit, push, sync conflicts -->
+
 
 ### Adding a Branch to GitHub Desktop
 
@@ -591,6 +592,30 @@ You can now access your new branch via the "Current branch" drop-down at the top
  
 :::
 
+### Sync Local Repository on GitHub Desktop with Remote Repository
+
+
+NB: To synchronize the local repository through GitHub Desktop with its remote counterpart in the first place, said repository must already be imported into GitHub Desktop. If this is the case, proceed as follows to sync.
+
+1. In GitHub Desktop, navigate to the repository you wish to sync using the drop-down at the top left corner. For this, open the drop-down (1. in left image below) and select the according repository (as in 2).
+2. As shown in the right image below, you have the option to select a specific branch you would like to sync. You'll find this in the drop-down indicated in 3, under "Branches" (4) and can select the according branch in the area marked by 5.
+
+::: {layout-ncol=2}
+
+![ ](images/git_sync_workflows-1.jpg)
+
+![ ](images/git_sync_workflows-2.jpg)
+
+:::
+
+Synchronisation can then be inbound or outbound, meaning you can import the newest version including changes made by others or you can add your changes (or request for them to be added) to the remote project. Either way, proceed as follows:
+
+3. Navigate to the drop-down/button right of "Current branch" (labelled 6 in the below image). GitHub Desktop will recognize if you have any changes to share, in which case the button will read "Publish branch" (if you've opened a branch that's not yet part in remote) or "Push to origin" (if you've commited changes to an already shared branch). This will integrate your changes (or ask for them to be integrated) into the remote project. In case you would just like to obtain the newest version of the remote document, navigate to the drop-down option labelled as 7 in the image below and press "Fetch from origin". You will then have the latest version of the remote project on your local GitHub Desktop. 
+In case you have no commits/changes to publish, the button will only read "Fetch from origin" in the first place and the "Push to origin" or "Publish branch" option will not even show up.
+
+In case you just Pushed a commit, you can now also open a pull request.
+
+![ ](images/git_sync_workflows-3.jpg)
 
 
 
