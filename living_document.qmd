@@ -504,7 +504,7 @@ CSL (Citation Style Language) files define formatting rules (e.g., APA, MLA, Chi
 
 - [Quarto Documentation – Citations](https://quarto.org/docs/authoring/footnotes-and-citations.html)
 - [Zotero Style Repository](https://www.zotero.org/styles)
-``` 
+ 
 
 # Git and Collaborative Workflows
 
@@ -513,6 +513,38 @@ CSL (Citation Style Language) files define formatting rules (e.g., APA, MLA, Chi
 
 ## GitHub Desktop
 <!-- TODOs: clone, commit, push, sync conflicts -->
+
+### Adding a Branch to GitHub Desktop
+
+Branches can only be added to repositories that are already connected to GitHub Desktop. Thus, make sure
+that you have cloned and/or forked the project from GitHub online. Furthermore, it goes without saying that one must be logged in to GitHub Desktop. Then, proceed as follows:
+
+Navigate to the according repository by:
+
+1. In GitHub Desktop, navigate to the drop-down "Current repository" in the top left corner as shown in the image below (1.)
+2. In said drop-down, select the repository you want to create the new branch for from the list of available repositories shown under 2. in the image below.
+
+![ ](images/GitHubDesktop-BranchWorkflow-1.jpg){width=80%}
+
+Then, create a new branch by:
+
+3. navigating to the drop-down "Current branch", which you'll find right to the "Current repository" drop-down at the top of the window as shown in 3. in the left image below.
+4. Inside the drop-down "Current branch" (at the top) you'll find two tabs: "Branches" and "Pull requests" (see 4. in left image below).
+5. In the tab "Branches", click on the "New branch" button next to the search box/Filter as showcased in 5. in the left image below.
+6. You will be asked to enter a name for your branch in a popup window as shown in the right image below  - do so in the field indicated as 6. in the right image below. For this, you can only use letters, numbers, dashes, underscores, and periods. Additionally, the branch name cannot start with a period or end with a slash. In the same pop-up, you'll have to decide whether you want your new branch to be added on to an already existing branch or to the main (see 7. in the right image below). Pick the option suitable to you. 
+7. Hit "Create branch" (8., right image) at the bottom right of the pop-up.
+
+You can now access your new branch via the "Current branch" drop-down at the top.
+
+::: {#fig-BranchWorkflow layout-ncol=2}
+
+![Create New Branch](images/GitHubDesktop-BranchWorkflow-2.jpg)
+
+![Name and Place Branch](images/GitHubDesktop-BranchWorkflow-3.jpg)
+ 
+:::
+
+
 
 
 ## Best Practices
