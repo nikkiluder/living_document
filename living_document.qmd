@@ -561,6 +561,33 @@ CSL (Citation Style Language) files define formatting rules (e.g., APA, MLA, Chi
 ## GitHub Desktop
 <!-- TODOs: clone, commit, push, sync conflicts -->
 
+### Preparing Commits, Pushing and Pull Requests
+As you know, Git is an amazing tool to work collaboratively on a project, but when it comes to making commits to the project, this can lead to some confusion. So here is a checklist when you want to prepare and push a commit for merging into the project and for creating a pull request:
+
+#### Making a Commit 
+
+  ![Image: Making a Commit](images\Making_a_commit.png)
+
+  1. Check that you are on the correct branch on *GitHub Desktop*
+  2. Edit and save your changes in your local editor - *RStudio, Visual Studio Code, or whatever you are using*. Check that it's a qmd file, *quarto markdown*, and not another type of file
+  3. Go to *GitHub Desktop*. Check if the changes shown are correct. If not, make sure if the correct file is selected and save it again in your local editor
+  4. Make sure to only select the files you want to be tracked by Git
+  5. Write a brief and clear commit description
+  6. Do the commit
+
+#### Publishing Your Branch for a Pull Request
+
+  7. Publish your file/branch. You can do so by clicking on ***Publish branch*** next to the ***Current branch*** menu on top
+  8. Now, it's time to pull/merge your commits into the main branch. If someone else is the administrator and has to check your commits for pulling, you need to click on *Preview pull request* under the ***Branch*** dropdown menu at the very top
+  9. This opens a new window where you can view your commits and adjust the description or title of your commits if necessary. If everything's good, you can click on ***Create pull request***
+  10. A window pops up in which it asks you if you want to push your commits. You now have to click on ***Push commits***
+  11. This automatically redirects you to the web version of GitHub. Now, you can add a title and description to your commits and check if everything is correct
+  12. Click on ***Create pull request*** 
+
+#### Synchronizing the Branch with Main
+
+  13. Go back to *GitHub Desktop*, again click on the ***Branch*** dropdown menu, and select *Update from upstream/main* or use the shortcut Ctrl+Shift+U 
+  14. Now you have to wait for your administrator to review your commits and merge it into the main document.  
 
 ### Adding a Branch to GitHub Desktop
 
@@ -620,7 +647,7 @@ In case you just Pushed a commit, you can now also open a pull request.
 
 
 ## Best Practices
-<!-- TODOs: shared tips, helpful links -->
+<!-- TODOs: shared tips, links -->
 
 ---
 
