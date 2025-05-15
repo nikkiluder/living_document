@@ -559,7 +559,36 @@ CSL (Citation Style Language) files define formatting rules (e.g., APA, MLA, Chi
 <!-- TODOs: branch creation, MR checklists, communication -->
 
 ## GitHub Desktop
-<!-- TODOs: clone, commit, push, sync conflicts -->
+### Cloning a Repository, Committing, and Pushing Changes using GitHub Desktop
+
+#### 1. Cloning the Repository
+
+1. Open **GitHub Desktop**.
+2. Click on **File > Clone repository**.
+3. In the **"URL"** tab, paste the repository URL (you can find this on the GitHub web page by clicking on the green "Code" button).
+4. Choose the local path where you want the repository to be saved.
+5. Click **Clone**.
+
+#### 2. Making Changes
+
+1. Open the cloned folder in your code editor (e.g., RStudio or VS Code).
+2. Make the necessary changes to your `.qmd`, `.md`, or code files.
+3. Save your changes.
+
+#### 3. Committing Changes
+
+1. Go back to **GitHub Desktop**. You will see your modified files listed under **Changes**.
+2. Optionally, uncheck any files you don’t want to include in the commit.
+3. Enter a **clear and concise commit message** describing what you changed.
+4. Click the **Commit to `[your-branch-name]`** button.
+
+#### 4. Pushing Changes
+
+1. After committing, click on **Push origin** (top toolbar) to push your commit to GitHub.
+2. If this is a new branch, you might see **Publish branch** instead. Click that.
+
+Once pushed, your changes will be reflected in the remote GitHub repository. You can now proceed to create a pull request if you're ready to merge your changes into the main document.
+
 
 ### Preparing Commits, Pushing and Pull Requests
 As you know, Git is an amazing tool to work collaboratively on a project, but when it comes to making commits to the project, this can lead to some confusion. So here is a checklist when you want to prepare and push a commit for merging into the project and for creating a pull request:
