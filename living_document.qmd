@@ -673,6 +673,31 @@ In case you just Pushed a commit, you can now also open a pull request.
 
 ![ ](images/git_sync_workflows-3.jpg)
 
+### Accepting Merge Requests (Pull Requests)
+
+When a contributor has finished working on a branch and submits a pull request, the next step is for a reviewer (often the project maintainer or assigned peer) to **review** and **merge** the changes into the main branch. Here's a step-by-step guide and checklist for reviewing and accepting a merge request on GitHub.
+
+#### 📋 Checklist for Reviewing a Pull Request
+
+1. Go to the repository on GitHub and click on the **Pull Requests** tab.
+2. Locate the pull request you want to review and click on it.
+3. Read the **description** of the pull request. Does it clearly explain what was changed and why?
+4. Click on the **Files changed** tab to review the actual code or text differences.
+5. Check for:
+   - Clarity and correctness of content (spelling, grammar, formatting)
+   - Consistency with the project's tone, structure, and style
+   - Unwanted or unrelated changes
+6. If something needs improvement, leave **comments** or request **changes** using the **Review changes** button.
+7. If everything looks good, click **Review changes > Approve**.
+
+#### ✅ Merging the Pull Request
+
+1. After approval, click the green **Merge pull request** button.
+2. Optionally edit the merge commit message.
+3. Click **Confirm merge**.
+4. You may then delete the branch by clicking **Delete branch** (recommended for keeping the repository tidy).
+
+> ⚠️ *Note:* Always ensure the branch is up-to-date with `main` before merging. If not, ask the contributor to sync it or do it yourself using **Update branch**.
 
 
 ## Best Practices
