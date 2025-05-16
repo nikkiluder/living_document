@@ -299,6 +299,235 @@ As discussed in @sec-NAME,...
 ## Code Cells and Quarto Options
 <!-- TODOs: basic chunk, inline code, echo, chunk options -->
 
+### Basic R Code Chunks
+To include R code in your Quarto document, you need to create a code chunk. Code chunks begin with three backticks followed by `{r}` and end with three backticks.
+
+```{{r}}
+# This is a basic R code chunk
+x <- "UZH-Lisguistics-Data-Science-Class-2025" # <1>
+```
+1. Code
+
+Create executable R code using code cells marked with `{r}`. These run during render and embed results.
+The content of the code chunk will be executed and the results will be displayed in the output document.
+By default, both code and results are shown in the final document
+
+### Basic Computation Examples with R
+
+#### Numeric Computations
+
+To demonstrate basic numerical operations, you only need to add an operator between two numbers or call the base function and give the corresponding number in brackets. 
+*(reminder: Addition, subtraction, multiplication, and division require parentheses around the operator.)*
+
+```{{r}}
+# Basic arithmetic
+5 + 4           # <1>
+10 - 3          # <2>
+4 * 5           # <3>
+20 / 4          # <4>
+2^3             # <5>
+```
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exponentiation
+
+For example: 
+
+```{{r}}
+# Add two numbers
+5 + 4
+```
+The code adds `5` and `4`  
+You’ll see this result:  
+
+```
+[1] 9
+```
+
+```{{r}}
+# Mathematical function
+sqrt(81) # <1>
+log(10) # <2>
+abs(-28) # <3>
+round(1.14514, 2) # <4>
+```
+1. Square root
+2. Natural logarithm
+3. Absolute value
+4. Rounding
+
+For example: 
+
+```{{r}}
+# Square root of 81
+sqrt(81)
+```
+
+This code calculates the square root of `81`
+You’ll see this result:  
+
+```
+[1] 9
+```
+
+#### Variables and Vector Operations
+
+You can create vectors and perform calculations on them:
+Use `<-` to concatenate vector names and vector values, where the vector being assigned is on the left side of the symbol.
+Then you can do calculations between two vectors.
+
+```{{r}}
+# Create vectors
+x <- c(10, 20, 30, 40, 50) # <1>
+y <- 1:5 # <2>
+
+# Vector operations
+x + y          # <3>
+x * 2          # <4>
+mean(x)        # <5>
+sum(x)         # <6>
+length(x)      # <7>
+```
+
+1. Creates a list of numbers called `x`,The `c()` function: Means "combine"
+2. Creates a sequence from 1 to 5
+3. Vector addition
+4. Scalar multiplication
+5. Mean
+6. Sum
+7. Vector length
+
+There is results for above 5 calculations: 
+```
+[1] 11 22 33 44 55
+[1] 20 40 60 80 100
+[1] 30
+[1] 150
+[1] 5
+```
+
+By default, the code and output results will be displayed at the same time. If you want to change the output mode, you need to use **Code cell options**.
+
+Here is an example showing how to create an R code block to perform calculations:
+
+```{{r}}
+#| label: mean-calculation # <1>
+#| echo: false # <1>
+# Calculate the mean of a numeric vector
+values <- c(12, 18, 5, 22, 9)
+mean_value <- mean(values)
+mean_value
+```
+1. Code cell options
+
+*For more information, you can visit [Quarto - Using R](https://quarto.org/docs/computations/r.html) and [Quarto - Using R](https://quarto.org/docs/computations/execution-options.html)*
+
+### Inline Code
+
+In Quarto and R Markdown, you can embed R code directly within your text using **inline code execution**. This allows you to dynamically compute values and display them in your document.  
+
+#### Basic Syntax
+Inline code is written as:  `` `{{r}} R_EXPRESSION` ``
+
+In Quarto documents, inline code is marked with the `r` syntax (backtick + r + space + code + backtick).
+When the document is rendered, the code is executed and its results are embedded in the text.
+
+#### Basic Calculations
+
+2 + 2 equals `` ` {{r}} 2 + 2 `` `
+
+It renders as:
+2 + 2 equals `{{r}} 2 + 2`
+
+#### Using Variables
+
+Similar to the basic R language code, we can also use the same symbols to define some variables, for example:
+
+`` `{{r}} x <- 10`  ``, 
+`` `{{r}} y <- 5 `` `
+`r x <- 10`
+`r y <- 5`
+The result of x + y is `` `{{r}} x + y` ``
+
+It renders as:
+The result of x + y is `r x + y`
+
+#### Function Application and Data Processing
+Functions can be called from inline code:
+
+`` `{{r}} data <- c(23, 45, 67, 12, 89)` ``
+`r data <- c(23, 45, 67, 12, 89)`
+The average of the data is `` `{{r}} mean(data)` ``
+
+The maximum value is `` `{{r}} max(data)` ``
+
+It renders as:
+
+The average of the data is `r mean(data)`
+
+The maximum value is `r max(data)`
+
+
+For example, we can control number display with `format()`, use `Sys.Date()` function to get the system date, and use `"%B %d, %Y"` to define the format:
+
+Today is `` `{{r}} format(Sys.Date(), "%B %d, %Y") `` `
+
+It renders as:
+Today is `r format(Sys.Date(), "%B %d, %Y")`
+
+Which is a dynamic date insertion.
+
+#### Use Cases
+This inline code execution functionality is especially useful in:
+
+Data analysis reports, Scientific research papers, Technical documentation, Real-time updated dashboards and Educational materials
+
+Through this approach, documents can contain not only static content but also dynamically generated content based on code execution results, making documents more interactive and up-to-date.
+
+Inline code can be used with any R function, nd can process not only numerical values ​​but also text.
+When using inline code, keep it concise. Complex calculations are best done in code blocks. Use the same formatting method for similar data.
+
+*You can find relevent information on [Quarto - Inline Code](https://quarto.org/docs/computations/inline-code.html)*
+
+### Common code chunk options
+
+Quarto provides many options to control how code chunks are executed and displayed. These options are specified within the curly braces of the code chunk declaration.
+Common code chunk options include:
+
+| Option | Description |
+|--------|-------------|
+| `echo` | Controls whether the code chunk is displayed (true/false) |
+| `eval` | Controls whether the code chunk is executed (true/false) |
+| `warning`, `message` | Controls whether warnings and messages are displayed (true/false) |
+| `fig-width`, `fig-height` | Controls figure dimensions (in inches) |
+
+[Full list of code chunk options](https://quarto.org/docs/reference/cells/cells-knitr.html)
+
+#### Controlling Code Display with `echo`
+
+The `echo` option controls whether the code is displayed in the output:
+
+```{r}
+#| echo: false
+z <- 50
+z * 2
+```
+
+The code above won't be shown in the output, but the result will:
+
+```
+## [1] 100
+```
+
+You can also use `echo: true` (the default) to explicitly show the code:
+
+```{r}
+#| echo: true
+mean(c(1, 2, 3, 4, 5))
+```
+
 ## Images and Plots
 <!-- TODOs: inserting local images, captions, figure sizing, code-generated plots -->
 
