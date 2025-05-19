@@ -20,79 +20,85 @@ Welcome to our class's collaborative guide! This living document was created by 
 
 It will evolve as we work on it together, and serve as a reference for your group projects.
 
----
+------------------------------------------------------------------------
 
 # Authoring with Quarto
 
 ## Anatomy of a Quarto Report
+
 <!-- TODOs: metadata header, sections, layout options, customization -->
 
 ### Metadata Header
-The *metadata header* is the beginning of a Quarto document. It displays information like author or date and tells Quarto how the document should be configurated. As an example, you can look at the top of this document in the in its qmd file version, *not in the rendered version*.
-There are a lot of possibilities to customize a Quarto document in the *metadata header*. In this document, we will be looking at the most commonly used configurations. If you want to see all the options that are available, you can visit the [official Quarto website] (https://quarto.org/docs/output-formats/html-basics.html).
+
+The *metadata header* is the beginning of a Quarto document. It displays information like author or date and tells Quarto how the document should be configurated. As an example, you can look at the top of this document in the in its qmd file version, *not in the rendered version*. There are a lot of possibilities to customize a Quarto document in the *metadata header*. In this document, we will be looking at the most commonly used configurations. If you want to see all the options that are available, you can visit the \[official Quarto website\] (https://quarto.org/docs/output-formats/html-basics.html).
 
 The formatting applies only to the current document.
 
 Use triple dashes to delineate the block:
 
-```
+```         
 ---
 some metadata
 ---
 ```
+
 Most commonly, the title block contains the **title**, **subtitle**, **authors**, **date**, **doi** and the **abstract** of the article.
 
 Other important options:
 
-```
+```         
 format: html / pdf / docx
 ```
+
 This option defines the format of the final product.
 
-```
+```         
 date: YYYY-MM-DD
 ```
-Sets the publication date (find supported date formats [here](https://quarto.org/docs/reference/dates.html)
-)
 
-```
+Sets the publication date (find supported date formats [here](https://quarto.org/docs/reference/dates.html) )
+
+```         
 execute: 
   echo: true / false
   eval: true / false
   warning: true / false ...
 ```
+
 Controls how code cells are executed:
 
-- **echo**: shows the code in the output if **true**
-- **eval**: executes the code if **true**
-- **warning**: includes warnings in the output if **true**
-- **message**: includes messages from code if **true**
-- **error**: displays error messages in the output if **true**
+-   **echo**: shows the code in the output if **true**
+-   **eval**: executes the code if **true**
+-   **warning**: includes warnings in the output if **true**
+-   **message**: includes messages from code if **true**
+-   **error**: displays error messages in the output if **true**
 
 ### Sections
-To better structure and improve the appearance of the document, a Quarto report can be divided into sections with headings.
-If you want to number the headings or add a table of contents *toc*, which serves as an interactive section menu, you can do so in the *metadata header*. For example, in this document, we use the following configurations:
-```markdown  
+
+To better structure and improve the appearance of the document, a Quarto report can be divided into sections with headings. If you want to number the headings or add a table of contents *toc*, which serves as an interactive section menu, you can do so in the *metadata header*. For example, in this document, we use the following configurations:
+
+``` markdown
   toc: true
   toc-depth: 3
   number-sections: true
 ```
+
 You can also add the option `number-depth: 4` to set the deepest level of heading that should be numbered and you can use `### Example Heading {.unnumbered}` to exclude a heading from numbering.
 
 ## Document Sections and Header Levels
 
 In Quarto (and Markdown), section headers are defined using the hash symbol `#`. The number of hash symbols indicates the depth of the section:
 
-- `#` creates a top-level (H1) section
-- `##` creates a second-level (H2) subsection
-- `###` creates a third-level (H3) sub-subsection  
-  … and so on, up to six levels (`######`)
+-   `#` creates a top-level (H1) section
+-   `##` creates a second-level (H2) subsection
+-   `###` creates a third-level (H3) sub-subsection\
+    … and so on, up to six levels (`######`)
 
 This system allows the document to be structured hierarchically, which improves both **readability** and **navigability**. Header levels are also used to build features like the **table of contents** (`toc: true`) and for **numbering sections** (`number-sections: true` in YAML).
 
 Always include a space after the hash symbols. For example:
 
-```markdown
+``` markdown
 # Introduction
 ## Methodology
 ### Data Collection
@@ -106,80 +112,85 @@ To ensure consistency, avoid skipping levels (e.g., going directly from `#` to `
 For more, see [Quarto documentation on headers](https://quarto.org/docs/authoring/markdown-basics.html#headers).
 
 ### Layout Options
-Depending on what format you use, there are different layout options available.
-For a **HTML document**, like this one, there are the following options to configurate the document:
+
+Depending on what format you use, there are different layout options available. For a **HTML document**, like this one, there are the following options to configurate the document:
 
 #### Page Layout
-1. `page-layout: article` - default layout with single centered content column
-2. `page-layout: full` - expanding content to full browser width
-3. `page-layout: sidebar` - adding sidebar for navigation
+
+1.  `page-layout: article` - default layout with single centered content column
+2.  `page-layout: full` - expanding content to full browser width
+3.  `page-layout: sidebar` - adding sidebar for navigation
 
 #### Themes
-There are 25 themes from [*Bootswatch*] (https://bootswatch.com/) available in Quarto. These themes can further be customized in the metadata header.
-If you want to check out all the theme options and configurations, you can go to [Quarto - HTML themes] (https://quarto.org/docs/output-formats/html-themes.html).
+
+There are 25 themes from \[*Bootswatch*\] (https://bootswatch.com/) available in Quarto. These themes can further be customized in the metadata header. If you want to check out all the theme options and configurations, you can go to \[Quarto - HTML themes\] (https://quarto.org/docs/output-formats/html-themes.html).
 
 #### Table of Contents
-If you set `toc: true` in the metadata header, Quarto creates a table of contents. This table can further be configurated with options such as:
-`toc-depth: 4` - specify number of section/heading levels to include in the toc, *default is set to 3*
-`toc-expand: 3` - specify how much of toc to show initially, *default is set to 1*
-`toc-title: Example` - customize title of toc
-`### Example Heading {.unnumbered .unlisted}` - exclude heading from toc
-`toc-location: left` - set location of toc
-For more information, you can visit [Quarto - HTML basics] https://quarto.org/docs/output-formats/html-basics.html and scroll to the section **Table of Contents**.
+
+If you set `toc: true` in the metadata header, Quarto creates a table of contents. This table can further be configurated with options such as: `toc-depth: 4` - specify number of section/heading levels to include in the toc, *default is set to 3* `toc-expand: 3` - specify how much of toc to show initially, *default is set to 1* `toc-title: Example` - customize title of toc `### Example Heading {.unnumbered .unlisted}` - exclude heading from toc `toc-location: left` - set location of toc For more information, you can visit \[Quarto - HTML basics\] https://quarto.org/docs/output-formats/html-basics.html and scroll to the section **Table of Contents**.
 
 #### Other Layout Options
-There are many other layout options available to configurate spacing, typography, character width, etc.
-For all the options you can visit [Quarto - HTML basics] https://quarto.org/docs/output-formats/html-basics.html.
+
+There are many other layout options available to configurate spacing, typography, character width, etc. For all the options you can visit \[Quarto - HTML basics\] https://quarto.org/docs/output-formats/html-basics.html.
 
 ## Basic Formatting & Markdown
+
 <!-- TODOs: headings, lists, emphasis, code blocks, links, footnotes -->
+
 ### Lists
+
 #### Unordered Lists
 
-1. Use `-`, `+`, or `*` followed by a space (choosing one style is enough)
-2. To create a **nested list**, indent (with 2 or 4 spaces) the sublist items under the parent item
+1.  Use `-`, `+`, or `*` followed by a space (choosing one style is enough)
+2.  To create a **nested list**, indent (with 2 or 4 spaces) the sublist items under the parent item
 
 **Example**
 
-```markdown
+``` markdown
 * unordered list
     + sub-item 1
     + sub-item 2
         - sub-sub-item 1
 ```
+
 **Rendered as**
 
-* unordered list
-    + sub-item 1
-    + sub-item 2
-        - sub-sub-item 1
+-   unordered list
+    -   sub-item 1
+    -   sub-item 2
+        -   sub-sub-item 1
 
 #### Ordered Lists
-1. Ordered lists work just like unordered lists — just replace the bullets (`-`, `+`, or `*`) followed by a period `.`
 
-2. In a nested ordered list, formats like `A.` or `i)`can be recognized if they are properly indented
-    - Note: it's also better to use **two spaces after the marker** to ensure the item is parsed as part of the list
+1.  Ordered lists work just like unordered lists — just replace the bullets (`-`, `+`, or `*`) followed by a period `.`
+
+2.  In a nested ordered list, formats like `A.` or `i)`can be recognized if they are properly indented
+
+    -   Note: it's also better to use **two spaces after the marker** to ensure the item is parsed as part of the list
 
 **Example**
-```markdown
+
+``` markdown
 1. ordered list
 2. item 2
     i) sub-item 1
          A.  sub-sub-item 1
 ```
+
 **Rendered as**
 
-1. ordered list
-2. item 2
-    i) sub-item 1
-         A.  sub-sub-item 1
+1.  ordered list
+2.  item 2
+    i)  sub-item 1
+        A.  sub-sub-item 1
 
 #### Mix Ordered and Unordered lists
+
 It's also possible to mix ordered and unordered lists.
 
 **Example**
 
-```markdown
+``` markdown
 1. Main item one  
    - Sub item A  
    - Sub item B  
@@ -191,13 +202,13 @@ It's also possible to mix ordered and unordered lists.
 
 **Rendered as**
 
-1. Main item one  
-   - Sub item A  
-   - Sub item B  
-2. Main item two  
-   * Sub item C  
-     1. Sub-sub item (ordered)  
-     2. Another sub-sub item  
+1.  Main item one
+    -   Sub item A\
+    -   Sub item B\
+2.  Main item two
+    -   Sub item C
+        1.  Sub-sub item (ordered)\
+        2.  Another sub-sub item
 
 *For more formatting options, see the [Quarto Markdown Basics documentation on Lists](https://quarto.org/docs/authoring/markdown-basics.html#lists).*
 
@@ -211,7 +222,7 @@ The most common symbols are asterisks `*` and tildes `~`. These symbols are plac
 
 Bold text is created by placing double asterisks around a word or phrase.
 
-```markdown
+``` markdown
 **This text is bold**
 ```
 
@@ -221,7 +232,7 @@ Bold text is created by placing double asterisks around a word or phrase.
 
 Italic text is created by placing single asterisks around the text. Italic can be used for emphasis, thoughts, or non-English terms.
 
-```markdown
+``` markdown
 *This text is italic*
 ```
 
@@ -231,7 +242,7 @@ Italic text is created by placing single asterisks around the text. Italic can b
 
 Strikethrough text is created using double tildes. This format is useful for marking deletions or outdated information.
 
-```markdown
+``` markdown
 ~~This text is crossed out~~
 ```
 
@@ -241,45 +252,45 @@ Strikethrough text is created using double tildes. This format is useful for mar
 
 It is also possible to combine multiple formatting styles. For example:
 
-```markdown
+``` markdown
 ***bold and italic***
 ```
 
 ***bold and italic***
 
-```markdown
+``` markdown
 **~~bold and strikethrough~~**
 ```
 
-**~~bold and strikethrough~~**
+~~**bold and strikethrough**~~
 
-```markdown
+``` markdown
 *~~italic and strikethrough~~*
 ```
 
-*~~italic and strikethrough~~*
+~~*italic and strikethrough*~~
 
-When combining symbols, the order matters: the outermost symbols should match (for example, `**~~text~~**` is correct, while `*~text~*` is not).  
+When combining symbols, the order matters: the outermost symbols should match (for example, `**~~text~~**` is correct, while `*~text~*` is not).\
 Also make sure all opening symbols are properly closed — otherwise, the formatting might not render as expected.
 
-These combinations allow flexibility in tone:  
-- Use `***text***` when something is **important and personal**  
-- Use `**~~text~~**` when something was once important but is now removed  
+These combinations allow flexibility in tone:\
+- Use `***text***` when something is **important and personal**\
+- Use `**~~text~~**` when something was once important but is now removed\
 - Use `*~~text~~*` when marking a tentative or soft correction
- 
+
 For more formatting options, see the [Quarto Markdown Basics documentation](https://quarto.org/docs/authoring/markdown-basics.html).
 
 ### Inserting External Links
 
-External links can be added verbatim by copying said link into the document and bracketing it with < > like this: 
+External links can be added verbatim by copying said link into the document and bracketing it with \< \> like this:
 
-```markdown
+``` markdown
 <https://en.wikipedia.org/wiki/Bumblebee>
 ```
 
 If one does not want the link to appear in full, one can add another string in square brackets and the link, this time in regular brackets, to the right as exemplified below. The output will then display the link in the square brackets and clickin on it will redirect the reader to the landing page of the deposited link - here a page on [Bumblebees](https://en.wikipedia.org/wiki/Bumblebee).
 
-```markdown
+``` markdown
 [Bumblebees](https://en.wikipedia.org/wiki/Bumblebee)
 ```
 
@@ -287,16 +298,18 @@ If one does not want the link to appear in full, one can add another string in s
 
 For this, the header one wishes to link to must be augmented with a tag of the following syntax (including the squiggly brackets). The NAME part can be adapted by the author. The tag is added to the header's right boundary.
 
-```markdown
+``` markdown
 {#sec-NAME}
 ```
+
 To later reference said header, the same tag but with an at sign instead of the octothorpe must be added. This can then be integrated into prose text. The NAME part will be displayed.
 
-```markdown
+``` markdown
 As discussed in @sec-NAME,...
 ```
 
 ## Code Cells and Quarto Options
+
 <!-- TODOs: basic chunk, inline code, echo, chunk options -->
 
 ### Basic R Code Chunks
@@ -529,7 +542,10 @@ mean(c(1, 2, 3, 4, 5))
 ```
 
 ## Images and Plots
+
 <!-- TODOs: inserting local images, captions, figure sizing, code-generated plots -->
+
+### How to reference images in text
 
 Use the following syntax to insert your local image:
 
@@ -581,12 +597,14 @@ See the [documentation](https://quarto.org/docs/authoring/figures.html) for furt
 
 
 ## Tables
+
 <!-- TODOs: markdown tables, knitr::kable(), comparison -->
+
 ### Quarto Markdown Table
 
 **Markdown Source and Display**
 
-```` markdown
+``` markdown
 | Default | Left | Right | Center |
 |---------|:-----|------:|:------:|
 | 12      | 12   |    12 |   12   |
@@ -594,7 +612,7 @@ See the [documentation](https://quarto.org/docs/authoring/figures.html) for furt
 | 1       | 1    |     1 |   1    |
 
 : Demonstration of pipe table syntax {#tbl-syntax .striped .hover}
-````
+```
 
 | Default | Left | Right | Center |
 |---------|:-----|------:|:------:|
@@ -603,8 +621,6 @@ See the [documentation](https://quarto.org/docs/authoring/figures.html) for furt
 | 1       | 1    |     1 |   1    |
 
 : Demonstration of pipe table syntax {#tbl-syntax .striped .hover}
-
-
 
 -   **Basic syntax**
     -   Pipe tables use `|` to indicate column boundary, at least three dashes `---` to define the header row and a line starting with `:` after the table to add a caption.
@@ -619,17 +635,15 @@ See the [documentation](https://quarto.org/docs/authoring/figures.html) for furt
 -   **Relative column widths can be influenced by the number of dashes `---` in the separator line**
     -   More dashes = wider column.
     -   Example: `------|---` will make the first column approximately 2/3 width, the second 1/3.
-      - Alternative: `: Table Caption {tbl-colwidths="[67,33]"}`
+    -   Alternative: `: Table Caption {tbl-colwidths="[67,33]"}`
 -   **Block elements are not allowed in table cells**
     -   No paragraphs, lists, or multi-line content inside a cell.
-- **Add the Bootstrap classes after the table caption**
-  - Example: `:Table Caption {.hover .striped}`
-- **Cross-reference with `:Table Caption {#tbl-label}` and `@tbl-label`**
-  - Example: See `@tbl-syntax` -> See @tbl-syntax
-  
+-   **Add the Bootstrap classes after the table caption**
+    -   Example: `:Table Caption {.hover .striped}`
+-   **Cross-reference with `:Table Caption {#tbl-label}` and `@tbl-label`**
+    -   Example: See `@tbl-syntax` -\> See @tbl-syntax
+
 *For more details, see the [Quarto documentation on tables](https://quarto.org/docs/authoring/tables.html).*
-
-
 
 ### Creating Tables Programmatically with knitr::kable()
 
@@ -643,19 +657,19 @@ kable(x, format, digits = getOption("digits"), row.names = NA,
       label = NULL, format.args = list(), escape = TRUE, ...)
 ```
 
-| Argument       | Type                 | Description                                                                 |
-|----------------|----------------------|------------------------------------------------------------------------------|
-| `x`            | data.frame / matrix  | The data to be rendered as a table. Required.                             |
-| `format`       | character            | Output format: `"markdown"`, `"html"`, `"latex"`, etc. Usually auto-detected. |
-| `digits`       | integer              | Number of decimal places to display. Defaults to `getOption("digits")`.     |
-| `row.names`    | logical / `NA`       | Whether to include row names: `TRUE`, `FALSE`, or `NA` for auto-detect.     |
-| `col.names`    | character vector     | Custom column names for the table.                                          |
-| `align`        | character vector     | Column alignment: `"l"` (left), `"c"` (center), `"r"` (right).              |
-| `caption`      | character            | Table caption shown above the table.                                        |
-| `label`        | character            | Label used for cross-referencing (e.g., `@tbl-summary`).                    |
-| `format.args`  | list                 | Additional arguments passed to `format()`.                                  |
-| `escape`       | logical              | Escape special characters like `_`, `&`. Use `FALSE` to allow raw HTML/LaTeX. |
-| `...`          | —                    | Additional arguments passed to formatting methods.                          |
+| Argument | Type | Description |
+|---------------|---------------|-------------------------------------------|
+| `x` | data.frame / matrix | The data to be rendered as a table. Required. |
+| `format` | character | Output format: `"markdown"`, `"html"`, `"latex"`, etc. Usually auto-detected. |
+| `digits` | integer | Number of decimal places to display. Defaults to `getOption("digits")`. |
+| `row.names` | logical / `NA` | Whether to include row names: `TRUE`, `FALSE`, or `NA` for auto-detect. |
+| `col.names` | character vector | Custom column names for the table. |
+| `align` | character vector | Column alignment: `"l"` (left), `"c"` (center), `"r"` (right). |
+| `caption` | character | Table caption shown above the table. |
+| `label` | character | Label used for cross-referencing (e.g., `@tbl-summary`). |
+| `format.args` | list | Additional arguments passed to `format()`. |
+| `escape` | logical | Escape special characters like `_`, `&`. Use `FALSE` to allow raw HTML/LaTeX. |
+| `...` | — | Additional arguments passed to formatting methods. |
 
 **Example**
 
@@ -678,13 +692,12 @@ kable(
 )
 ```
 
-
 *For more details on using `knitr::kable()`, see the [R Markdown Cookbook – Section 6.5](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html).*
 
 ### Comparison: Quarto Markdown Table vs knitr::kable()
 
 | Feature | Quarto Markdown Table | `knitr::kable()` Table |
-|-----------------|----------------------------|----------------------------|
+|------------------|---------------------------|---------------------------|
 | Syntax Style | Pure Markdown | R code chunk using `kable()` |
 | Data Source | Written manually | R data frame or matrix |
 | Captions Support | Yes (with `:...` line after the table) | Yes (`caption = "..."`) |
@@ -695,10 +708,8 @@ kable(
 | Styling (advanced) | Limited | Supports `kableExtra`, `booktabs`, etc. |
 | Dynamic Content | No | Yes – generated from live R data |
 | Best For | Simple static tables or syntax demos | Data-driven tables, dynamic reports |
-## Citations and Bibliography
-<!-- TODOs: .bib file usage, citation styles, Zotero integration -->
 
----
+<!-- TODOs: .bib file usage, citation styles, Zotero integration -->
 
 ## Citations and Bibliography
 
@@ -710,7 +721,7 @@ A `.bib` file contains citation entries such as `@book`, `@article`, or `@misc`.
 
 Example entry:
 
-```bibtex
+``` bibtex
 @book{manning1999,
   author    = {Christopher D. Manning and Hinrich Schütze},
   title     = {Foundations of Statistical Natural Language Processing},
@@ -727,13 +738,13 @@ Tip: Tools like Zotero (with the Better BibTeX plugin) can help manage and expor
 
 Add the following line to the YAML metadata block at the top of the `.qmd` file:
 
-```yaml
+``` yaml
 bibliography: references.bib
 ```
 
 We can also include multiple `.bib` files if needed:
 
-```yaml
+``` yaml
 bibliography: [references.bib, extra.bib]
 ```
 
@@ -745,22 +756,21 @@ To cite a source in the text, use `@key`, where `key` is the BibTeX ID from your
 
 There are two common ways to format inline citations:
 
-- `[@manning1999]` → renders as: (Manning and Schütze 1999)  
-  *Used when the author name should appear in the citation.*
+-   `[@manning1999]` → renders as: (Manning and Schütze 1999)\
+    *Used when the author name should appear in the citation.*
 
-- `[-@manning1999]` → renders as: (1999)  
-  *Used when the author name is already mentioned in the sentence.*
+-   `[-@manning1999]` → renders as: (1999)\
+    *Used when the author name is already mentioned in the sentence.*
 
 For example:
 
-See [@manning1999]. 
-Published in [-@manning1999].
+See [@manning1999]. Published in [-@manning1999].
 
 ### Step 4: Generate the bibliography section
 
 At the end of document, include a section where the bibliography will be rendered:
 
-```markdown
+``` markdown
 ## References
 ```
 
@@ -770,7 +780,7 @@ Quarto will automatically generate this list using the sources you've cited. If 
 
 Citation styles can be changed using the `csl:` option in the YAML block. For example:
 
-```yaml
+``` yaml
 csl: apa.csl
 ```
 
@@ -778,17 +788,44 @@ CSL (Citation Style Language) files define formatting rules (e.g., APA, MLA, Chi
 
 ### Further Reading and Resources
 
-- [Quarto Documentation – Citations](https://quarto.org/docs/authoring/footnotes-and-citations.html)
-- [Zotero Style Repository](https://www.zotero.org/styles)
+-   [Quarto Documentation – Citations](https://quarto.org/docs/authoring/footnotes-and-citations.html)
+-   [Zotero Style Repository](https://www.zotero.org/styles)
 
+
+## Integrating Zotero with Quarto documents
+
+Zotero can be used as the citation source in Quarto. The Better BibTeX plugin lets you stay in sync with your Zotero library, where you can add or update items and automatically export your bibliography.
+
+### Step 1: Set up Zotero
+
+-   Install Zotero on your desktop
+
+-   Add the Better BibTeX plugin for Zotero
+
+### Step 2: Export bibliography
+
+-   Export your bibliography and choose Better BibTeX as the format, which will create the `.bib` file and keep it updated every time you change your library
+
+-   Move the extracted folder into the same folder as your `.qdm` file
+
+### Step 3:  Link the `.bib` file in the YAML header
+
+-   To reference your bibliography in Quarto, create the bibliography path to your exported files inside the YAML header:
+
+``` yaml
+bibliography: references.bib 
+```
+
+For further instructions on Group Libraries and API Access key, visit [Citations from Zotero](https://quarto.org/docs/visual-editor/technical.html#citations-from-zotero).
 
 # Git and Collaborative Workflows
 
 ## Branching and Merge Requests
+
 <!-- TODOs: branch creation, MR checklists, communication -->
 
 ## GitHub Desktop
-<!-- TODOs: clone, commit, push, sync conflicts -->
+
 
 ### Preparing Commits, Pushing and Pull Requests
 As you know, Git is an amazing tool to work collaboratively on a project, but when it comes to making commits to the project, this can lead to some confusion. So here is a checklist when you want to prepare and push a commit for merging into the project and for creating a pull request:
@@ -876,9 +913,9 @@ In case you just Pushed a commit, you can now also open a pull request.
 
 
 ## Best Practices
-<!-- TODOs: shared tips, links -->
 
----
+
+------------------------------------------------------------------------
 
 # Project Organization
 
@@ -886,7 +923,7 @@ In case you just Pushed a commit, you can now also open a pull request.
 
 Use the following basic template for your project
 
-```md
+``` md
 project_name/              # <1>
 ├── data/                # <2>
 ├── R/                   # <3>
@@ -901,48 +938,48 @@ project_name/              # <1>
 ├── README.md            # <9>
 └── project_name.Rproj   # <10>
 ```
-1. Project name
-2. Original data used by your project
-3. R scripts for functions and utilities, as well as setup code
-4. All outputs are stored here, with nested folders for images, data, etc. as needed
-5. Git ignore list (configured to skip temporary files)
-6. Quarto configuration file — defines output format, theme, and other global settings
-7. The main project report (Quarto Markdown)
-8. Worklog tracking project member contributions
-9. Project description and instructions
+
+1.  Project name
+2.  Original data used by your project
+3.  R scripts for functions and utilities, as well as setup code
+4.  All outputs are stored here, with nested folders for images, data, etc. as needed
+5.  Git ignore list (configured to skip temporary files)
+6.  Quarto configuration file — defines output format, theme, and other global settings
+7.  The main project report (Quarto Markdown)
+8.  Worklog tracking project member contributions
+9.  Project description and instructions
 10. RStudio Project file (if using)
 
 ## General Guidelines
 
-- Use RStudio Projects (or similar tool) to organize your project
-- Use GitHub issues, branches, and structured communication channels to organize your work
-  - Establish project roles and responsibilities
-  - Maintain the worklog to track your contributions
-  - Have one `main` branch to represent the latest "clean" work you did
-  - Use a single meta-issue to track project progress
-- Use descriptive, consistent file names
-  - Use `snake_case`, avoid spaces or other special characters in file names
-  - Use numerical prefixes (e.g. `01_load_data.R`, `02_clean_data.R`) if scripts need to be executed in particular order
-  - Use `.gitignore` to exclude temporary files that do not need to be versioned
-  - Add `.Rhistory`, `.Rproj.user`, and large intermediate results (e.g. model caches) to `.gitignore`
-- Organize your code
-  - Prefer short, focused chunks with clear purpose
-  - Put large analyses and common utilities into separate scripts (to be stored in `R/`)
-- Never modify raw data files directly
-  - Use spatial separation for generated files (i.e. `outputs/`)
-- Document everything
-  - Create a detailed README with project overview, dependencies, and instructions
-  - Comment your code thoroughly
-  - Document data sources (version, license, how the data was fetched, etc.)
-  - Include a data dictionary (brief structured explanation of all data you use)
-  - Document decisions and assumptions
-- Aim for reproducibility
-  - Document the packages you use (and how you use them)
-  - Always use project-relative file paths (e.g. `data/data.csv` instead of `/Users/taras/Projects/my_project/data`)
-  - Make sure that the code runs on all your machines
+-   Use RStudio Projects (or similar tool) to organize your project
+-   Use GitHub issues, branches, and structured communication channels to organize your work
+    -   Establish project roles and responsibilities
+    -   Maintain the worklog to track your contributions
+    -   Have one `main` branch to represent the latest "clean" work you did
+    -   Use a single meta-issue to track project progress
+-   Use descriptive, consistent file names
+    -   Use `snake_case`, avoid spaces or other special characters in file names
+    -   Use numerical prefixes (e.g. `01_load_data.R`, `02_clean_data.R`) if scripts need to be executed in particular order
+    -   Use `.gitignore` to exclude temporary files that do not need to be versioned
+    -   Add `.Rhistory`, `.Rproj.user`, and large intermediate results (e.g. model caches) to `.gitignore`
+-   Organize your code
+    -   Prefer short, focused chunks with clear purpose
+    -   Put large analyses and common utilities into separate scripts (to be stored in `R/`)
+-   Never modify raw data files directly
+    -   Use spatial separation for generated files (i.e. `outputs/`)
+-   Document everything
+    -   Create a detailed README with project overview, dependencies, and instructions
+    -   Comment your code thoroughly
+    -   Document data sources (version, license, how the data was fetched, etc.)
+    -   Include a data dictionary (brief structured explanation of all data you use)
+    -   Document decisions and assumptions
+-   Aim for reproducibility
+    -   Document the packages you use (and how you use them)
+    -   Always use project-relative file paths (e.g. `data/data.csv` instead of `/Users/taras/Projects/my_project/data`)
+    -   Make sure that the code runs on all your machines
 
-
----
+------------------------------------------------------------------------
 
 # Coding Style Guide
 
@@ -952,34 +989,34 @@ Good coding style makes your code easier to read, share, and revisit later. The 
 
 **Structure**
 
-- Use **two-space indentation** — this keeps things compact and readable
-- Use the **pipe operator (`|>`)** to break operations into clear steps
-- Every **dplyr predicate** (like `filter()`, `mutate()`) should start on a **new line**.
-- For long function calls, put each argument on a separate line, with indentation.
+-   Use **two-space indentation** — this keeps things compact and readable
+-   Use the **pipe operator (`|>`)** to break operations into clear steps
+-   Every **dplyr predicate** (like `filter()`, `mutate()`) should start on a **new line**.
+-   For long function calls, put each argument on a separate line, with indentation.
 
 **Variables**
 
-- All names should be self-explanatory, be as verbose as necessary (e.g. `penguins_stats_summary` instead of `pgs`)
-- Use **snake_case** for all variable and function names (e.g., `penguin_data`, `filter_species()`)
-- Use different variable names for different data
+-   All names should be self-explanatory, be as verbose as necessary (e.g. `penguins_stats_summary` instead of `pgs`)
+-   Use **snake_case** for all variable and function names (e.g., `penguin_data`, `filter_species()`)
+-   Use different variable names for different data
 
 **Code Chunks**
 
-- Chunks should be compact and focused — ideally under 10–15 lines
-- Avoid “dead code” — don’t include code that isn’t used or explained
-- Large, reusable functions or repeated logic should be outsourced to a shared script (e.g., `R/helpers.R`)
-- Every chunk should fulfill a clear purpose, and its role should be obvious from the context or accompanying comments
+-   Chunks should be compact and focused — ideally under 10–15 lines
+-   Avoid “dead code” — don’t include code that isn’t used or explained
+-   Large, reusable functions or repeated logic should be outsourced to a shared script (e.g., `R/helpers.R`)
+-   Every chunk should fulfill a clear purpose, and its role should be obvious from the context or accompanying comments
 
 **Comments**
 
-- Use comments to explain why something is being done — not just what
-- Avoid repeating the code in your comment
-- Place comments above or beside logical steps to improve clarity
-- Use comment markers (e.g. `# TODO: `, `# CHECK: `) to call attention to things that need to be done
+-   Use comments to explain why something is being done — not just what
+-   Avoid repeating the code in your comment
+-   Place comments above or beside logical steps to improve clarity
+-   Use comment markers (e.g. `# TODO:`, `# CHECK:`) to call attention to things that need to be done
 
 ## Example
 
-```r
+``` r
 #| echo: true
 #| eval: false
 # survey Adelie penguins across the islands                            # <1>
@@ -998,68 +1035,74 @@ penguin_adelie_stats <- penguins |>                                    # <2>
     .by = island
   )
 ```
-1. Clear comment, explains the purpose of the code
-2. Verbose, self-documenting variable name
-3. Each function call on a separate line, grouped by consitent indentation
-4. Use pipe operator to chain transformations
-5. Custom function defined in an external script, with a guiding comment
 
----
+1.  Clear comment, explains the purpose of the code
+2.  Verbose, self-documenting variable name
+3.  Each function call on a separate line, grouped by consitent indentation
+4.  Use pipe operator to chain transformations
+5.  Custom function defined in an external script, with a guiding comment
+
+------------------------------------------------------------------------
 
 # Plotting Best Practices
+
 <!-- TODOs: color schemes, labeling, readability, theme customization -->
 
----
+------------------------------------------------------------------------
 
-#  AI Usage Guidelines
+# AI Usage Guidelines
 
 ## General Principles
 
-- **Transparency**: Always disclose AI usage in your work
-- **Responsibility**: You are responsible for all content, even if AI-assisted
-- **Learning Focus**: Use AI as a tool to enhance learning, not replace it
+-   **Transparency**: Always disclose AI usage in your work
+-   **Responsibility**: You are responsible for all content, even if AI-assisted
+-   **Learning Focus**: Use AI as a tool to enhance learning, not replace it
 
 ## Suggested Best Practices
 
-- Use AI for brainstorming
-- Ask AI to explain concepts you don't understand
-- Have AI review your work for clarity and structure
-- Avoid using AI to generate complete solutions without understanding
+-   Use AI for brainstorming
+-   Ask AI to explain concepts you don't understand
+-   Have AI review your work for clarity and structure
+-   Avoid using AI to generate complete solutions without understanding
 
 ## Further Resounces
 
-- [UZH AI Guidelines](https://www.uzh.ch/en/explore/basics/ai.html)
+-   [UZH AI Guidelines](https://www.uzh.ch/en/explore/basics/ai.html)
 
----
-
+------------------------------------------------------------------------
 
 # Extra Tips and Tricks
+
 <!-- TODOs: VSCode setup for Quarto/RMarkdown etc. -->
+
 ## VS Code Setup for Quarto
 
-- Install [VS Code](https://code.visualstudio.com), [R](https://cran.r-project.org) and [Quarto](https://quarto.org/docs/get-started/).
-- Open VS Code, go to Extensions and install **Quarto**.
-- Install the required packages: knitr and rmarkdown. To do this, run the following commands:
-  ```
-  install.packages('knitr')
-  install.packages('rmarkdown')
-  ```
-  You can run these commands on RStudio ([installation instructions](https://posit.co/download/rstudio-desktop/)). Alternatively, you can set up an R terminal on VS Code. To do this, you will need another **extension**: **R**. Once you've installed R on VS Code, you can run an R terminal and install packages there.
+-   Install [VS Code](https://code.visualstudio.com), [R](https://cran.r-project.org) and [Quarto](https://quarto.org/docs/get-started/).
 
-- To preview your document, press the preview button (top right corner).
+-   Open VS Code, go to Extensions and install **Quarto**.
 
-- To view recent changes, refresh the preview (refresh button in Quarto Preview tab).
+-   Install the required packages: knitr and rmarkdown. To do this, run the following commands:
 
+    ```         
+    install.packages('knitr')
+    install.packages('rmarkdown')
+    ```
 
----
+    You can run these commands on RStudio ([installation instructions](https://posit.co/download/rstudio-desktop/)). Alternatively, you can set up an R terminal on VS Code. To do this, you will need another **extension**: **R**. Once you've installed R on VS Code, you can run an R terminal and install packages there.
+
+-   To preview your document, press the preview button (top right corner).
+
+-   To view recent changes, refresh the preview (refresh button in Quarto Preview tab).
+
+------------------------------------------------------------------------
 
 # Further Resources
 
 Here are some useful official resources to explore:
 
-- [Quarto Documentation](https://quarto.org/docs/)
-- [GitHub Docs: Branches](https://docs.github.com/en/get-started/quickstart/github-flow)
-- [GitHub Desktop Documentation](https://docs.github.com/en/desktop)
-- [Happy Git with R](https://happygitwithr.com/)
+-   [Quarto Documentation](https://quarto.org/docs/)
+-   [GitHub Docs: Branches](https://docs.github.com/en/get-started/quickstart/github-flow)
+-   [GitHub Desktop Documentation](https://docs.github.com/en/desktop)
+-   [Happy Git with R](https://happygitwithr.com/)
 
 Feel free to add more helpful links as we go!
