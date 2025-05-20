@@ -876,97 +876,162 @@ For further instructions on Group Libraries and API Access key, visit [Citations
 
 ## Branching and Merge Requests
 
-<!-- TODOs: branch creation, MR checklists, communication -->
+This section outlines essential practices when working with GitHub Desktop in collaborative projects, focusing on creating branches, making commits, syncing, and managing merge requests.
 
-## GitHub Desktop
+## GitHub Desktop Workflow
 
+### Clone, commit and pushing changes
 
-### Preparing Commits, Pushing and Pull Requests
+#### Cloning a Repository
+
+1. Open **GitHub Desktop**.
+2. Log in with your GitHub account.
+3. Click on `File` > `Clone Repository`.
+4. In the `GitHub.com` tab, find the repository you want to clone.
+5. Click `Clone` and choose a local directory to save the repository.
+
+#### Making Changes
+
+1. Open the cloned folder in your code editor (e.g., RStudio or VS Code).
+2. Make the necessary changes to your `.qmd`, `.md`, or code files.
+3. Save your changes.
+
+#### Committing Changes
+
+1. Go back to **GitHub Desktop**. You will see your modified files listed under **Changes**.
+2. Optionally, uncheck any files you don’t want to include in the commit.
+3. Enter a **clear and concise commit message** describing what you changed.
+4. Click the **Commit to `[your-branch-name]`** button.
+
+### Pushing Changes
+
+1. After committing, click on **Push origin** (top toolbar) to push your commit to GitHub.
+2. If this is a new branch, you might see **Publish branch** instead. Click that.
+
+Once pushed, your changes will be reflected in the remote GitHub repository. You can now proceed to create a pull request if you're ready to merge your changes into the main document.
+
+---
+
+### Creating a New Branch
+
+1. In GitHub Desktop, open the correct repository using the **Current Repository** dropdown.
+2. Click on the **Current Branch** dropdown next to it.
+3. Click **New Branch**.
+4. Enter a descriptive name for your branch.
+   - Valid characters: letters, numbers, `-`, `_`, `.`
+   - Must not begin with `.` or end with `/`
+5. Choose whether to base the branch off `main` or another branch.
+6. Click **Create Branch**.
+
+::: {.layout-ncol=2}
+![Create Branch](images/GitHubDesktop-BranchWorkflow-2.jpg)
+![Name Branch](images/GitHubDesktop-BranchWorkflow-3.jpg)
+:::
+
+---
+
+### Preparing Commits
 As you know, Git is an amazing tool to work collaboratively on a project, but when it comes to making commits to the project, this can lead to some confusion. So here is a checklist when you want to prepare and push a commit for merging into the project and for creating a pull request:
 
-#### Making a Commit 
 
-  ![Image: Making a Commit](images\Making_a_commit.png)
+#### Checklist for Preparing Commits
 
-  1. Check that you are on the correct branch on *GitHub Desktop*
-  2. Edit and save your changes in your local editor - *RStudio, Visual Studio Code, or whatever you are using*. Check that it's a qmd file, *quarto markdown*, and not another type of file
-  3. Go to *GitHub Desktop*. Check if the changes shown are correct. If not, make sure if the correct file is selected and save it again in your local editor
-  4. Make sure to only select the files you want to be tracked by Git
-  5. Write a brief and clear commit description
-  6. Do the commit
+- [ ] Ensure you're on the correct branch  
+- [ ] Save your edits in a `.qmd` (Quarto) file  
+- [ ] Verify changes shown in GitHub Desktop  
+- [ ] Stage only necessary files  
+- [ ] Write a meaningful commit message  
+- [ ] Commit changes  
 
-#### Publishing Your Branch for a Pull Request
+#### Writing Commit Messages
 
-  7. Publish your file/branch. You can do so by clicking on ***Publish branch*** next to the ***Current branch*** menu on top
-  8. Now, it's time to pull/merge your commits into the main branch. If someone else is the administrator and has to check your commits for pulling, you need to click on *Preview pull request* under the ***Branch*** dropdown menu at the very top
-  9. This opens a new window where you can view your commits and adjust the description or title of your commits if necessary. If everything's good, you can click on ***Create pull request***
-  10. A window pops up in which it asks you if you want to push your commits. You now have to click on ***Push commits***
-  11. This automatically redirects you to the web version of GitHub. Now, you can add a title and description to your commits and check if everything is correct
-  12. Click on ***Create pull request*** 
+**Tips:**
+- Use the present tense: _"Fix typo"_, _"Add introduction section"_
+- Keep it short (under 50 characters) for the subject
+- Add a longer body after a line break if needed
 
-#### Synchronizing the Branch with Main
+**Examples:**
+```
+Add methods section to analysis.qmd  
+Fix plot alignment in results  
+Refactor intro for clarity  
+```
 
-  13. Go back to *GitHub Desktop*, again click on the ***Branch*** dropdown menu, and select *Update from upstream/main* or use the shortcut Ctrl+Shift+U 
-  14. Now you have to wait for your administrator to review your commits and merge it into the main document.  
+#### Committing Changes
 
-### Adding a Branch to GitHub Desktop
+1. Edit files in your local editor (e.g., RStudio, VS Code).
+2. Save your changes.
+3. Switch to GitHub Desktop.
+4. Review file changes and select which to include.
+5. Enter a commit message.
+6. Click `Commit to [branch name]`.
 
-Branches can only be added to repositories that are already connected to GitHub Desktop. Thus, make sure
-that you have cloned and/or forked the project from GitHub online. Furthermore, it goes without saying that one must be logged in to GitHub Desktop. Then, proceed as follows:
+![Commit Example](images/Making_a_commit.png)
 
-Navigate to the according repository by:
+---
 
-1. In GitHub Desktop, navigate to the drop-down "Current repository" in the top left corner as shown in the image below (1.)
-2. In said drop-down, select the repository you want to create the new branch for from the list of available repositories shown under 2. in the image below.
+### Pushing Changes and Creating a Pull Request
 
-![ ](images/GitHubDesktop-BranchWorkflow-1.jpg){width=80%}
+1. After committing, click `Publish branch`.
+2. Then, go to `Branch` > `Create Pull Request`.
+3. Preview the pull request details.
+4. Adjust title and description if necessary.
+5. Click `Create Pull Request`.
+6. You’ll be redirected to GitHub in the browser.
+7. Finalize and click `Create Pull Request`.
 
-Then, create a new branch by:
+---
 
-3. navigating to the drop-down "Current branch", which you'll find right to the "Current repository" drop-down at the top of the window as shown in 3. in the left image below.
-4. Inside the drop-down "Current branch" (at the top) you'll find two tabs: "Branches" and "Pull requests" (see 4. in left image below).
-5. In the tab "Branches", click on the "New branch" button next to the search box/Filter as showcased in 5. in the left image below.
-6. You will be asked to enter a name for your branch in a popup window as shown in the right image below  - do so in the field indicated as 6. in the right image below. For this, you can only use letters, numbers, dashes, underscores, and periods. Additionally, the branch name cannot start with a period or end with a slash. In the same pop-up, you'll have to decide whether you want your new branch to be added on to an already existing branch or to the main (see 7. in the right image below). Pick the option suitable to you. 
-7. Hit "Create branch" (8., right image) at the bottom right of the pop-up.
+### Syncing with Remote Repository
 
-You can now access your new branch via the "Current branch" drop-down at the top.
+To keep your branch up to date:
 
-::: {#fig-BranchWorkflow layout-ncol=2}
+1. Open the correct repository in GitHub Desktop.
+2. Switch to the correct branch using the **Current Branch** dropdown.
+3. Click `Fetch origin` to check for changes.
+4. If updates exist, click `Pull origin` or `Update from main`.
+5. To push your changes: click `Push origin`.
 
-![Create New Branch](images/GitHubDesktop-BranchWorkflow-2.jpg)
-
-![Name and Place Branch](images/GitHubDesktop-BranchWorkflow-3.jpg)
- 
+::: {.layout-ncol=2}
+![Sync Repo](images/git_sync_workflows-1.jpg)
+![Choose Branch](images/git_sync_workflows-2.jpg)
 :::
 
-### Sync Local Repository on GitHub Desktop with Remote Repository
+![Push or Fetch](images/git_sync_workflows-3.jpg)
 
+---
 
-NB: To synchronize the local repository through GitHub Desktop with its remote counterpart in the first place, said repository must already be imported into GitHub Desktop. If this is the case, proceed as follows to sync.
+### Resolving Merge Conflicts
 
-1. In GitHub Desktop, navigate to the repository you wish to sync using the drop-down at the top left corner. For this, open the drop-down (1. in left image below) and select the according repository (as in 2).
-2. As shown in the right image below, you have the option to select a specific branch you would like to sync. You'll find this in the drop-down indicated in 3, under "Branches" (4) and can select the according branch in the area marked by 5.
+1. When a merge conflict occurs, GitHub Desktop shows conflicting files.
+2. Click `Resolve conflicts` next to the file.
+3. Open the file in your editor.
+4. Look for conflict markers: `<<<<<<<`, `=======`, `>>>>>>>`
+5. Manually edit to keep the correct version.
+6. Save the file.
+7. Return to GitHub Desktop, mark as resolved.
+8. Commit the merge resolution.
 
-::: {layout-ncol=2}
+---
 
-![ ](images/git_sync_workflows-1.jpg)
+### Accepting Merge Requests (Pull Requests)
 
-![ ](images/git_sync_workflows-2.jpg)
+1. Go to the repository on GitHub (web).
+2. Open the `Pull requests` tab.
+3. Review the description and file changes.
+4. If everything looks good, click `Merge pull request`.
+5. Optionally, delete the branch.
 
-:::
+---
 
-Synchronisation can then be inbound or outbound, meaning you can import the newest version including changes made by others or you can add your changes (or request for them to be added) to the remote project. Either way, proceed as follows:
+## Additional Tips and Tricks
 
-3. Navigate to the drop-down/button right of "Current branch" (labelled 6 in the below image). GitHub Desktop will recognize if you have any changes to share, in which case the button will read "Publish branch" (if you've opened a branch that's not yet part in remote) or "Push to origin" (if you've commited changes to an already shared branch). This will integrate your changes (or ask for them to be integrated) into the remote project. In case you would just like to obtain the newest version of the remote document, navigate to the drop-down option labelled as 7 in the image below and press "Fetch from origin". You will then have the latest version of the remote project on your local GitHub Desktop. 
-In case you have no commits/changes to publish, the button will only read "Fetch from origin" in the first place and the "Push to origin" or "Publish branch" option will not even show up.
+- Use meaningful branch names (e.g., `feature/add-navbar`, `fix/typo-intro`)
+- Always sync your branch before starting new work
+- Commit often but with purpose
+- Communicate with your team in pull request comments
+- Use `.gitignore` to exclude unnecessary files from tracking
 
-In case you just Pushed a commit, you can now also open a pull request.
-
-![ ](images/git_sync_workflows-3.jpg)
-
-
-
-## Best Practices
 
 
 ------------------------------------------------------------------------
