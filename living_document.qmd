@@ -1102,6 +1102,29 @@ penguin_adelie_stats <- penguins |>                                    # <2>
 
 <!-- TODOs: color schemes, labeling, readability, theme customization -->
 
+## Axis Labelling & Annotation Guidelines
+
+| Guideline                                 | Why it matters                     | How to implement                                                |
+| ----------------------------------------- | ---------------------------------- | --------------------------------------------------------------- |
+| Use descriptive axis titles (units!)      | Readers grasp quantities instantly | `labs(x = "Temperature (°C)", y = "Growth rate (mm/day)")`      |
+| Place the zero line where it adds context | Prevents mis‑interpretation        | `scale_y_continuous(expand = expansion(mult = c(0, .05)))`      |
+| Keep tick labels legible                  | Crowded labels add cognitive load  | `scale_x_date(date_labels = "%b %Y", date_breaks = "3 months")` |
+| Directly label series inside the plot     | Legends require eye jumps          | `geom_text_repel()` or `ggrepel::geom_label_repel()`            |
+| Provide data source / notes               | Transparency & reproducibility     | `labs(caption = "Source: WHO • 2023")`                          |
+
+## Crafting Publication‑Quality Figures
+
+1. **Choose the right graphic device**
+
+   * **PDF/SVG** for vector line art (retains crispness, ideal for journals).
+   * **PNG** for raster images with gradients/photographs.
+2. **Set explicit figure dimensions** matching journal or slide specs: `ggsave(width = 90, height = 60, units = "mm")`.
+3. **Increase resolution** for raster outputs: `dpi = 320` (print) or `dpi = 150` (slides/web).
+4. **Embed fonts** to avoid substitution. On Unix‑like systems call: `extrafont::embed_fonts("figure.pdf")`.
+5. **Panel plots**: use `or` for multi‑panel layouts. Keep shared legends outside.
+6. **Colour space**: when printing, convert to CMYK or at least test with soft‑proofing.
+
+
 ------------------------------------------------------------------------
 
 # AI Usage Guidelines
