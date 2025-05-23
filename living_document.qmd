@@ -893,15 +893,17 @@ This section outlines essential practices when working with GitHub Desktop in co
 #### Making Changes
 
 1. Open the cloned folder in your code editor (e.g., RStudio or VS Code).
-2. Make the necessary changes to your `.qmd`, `.md`, or code files.
-3. Save your changes.
+2. Make sure you are on the correct branch
+3. Make the necessary changes to your `.qmd`, `.md`, or code files.
+4. Save your changes.
 
 #### Committing Changes
 
 1. Go back to **GitHub Desktop**. You will see your modified files listed under **Changes**.
-2. Optionally, uncheck any files you don’t want to include in the commit.
-3. Enter a **clear and concise commit message** describing what you changed.
-4. Click the **Commit to `[your-branch-name]`** button.
+2. Make sure you are on the correct branch
+3. Optionally, uncheck any files you don’t want to include in the commit.
+4. Enter a **clear and concise commit message** describing what you changed.
+5. Click the **Commit to `[your-branch-name]`** button.
 
 ### Pushing Changes
 
